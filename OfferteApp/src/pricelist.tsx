@@ -3,8 +3,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-function App() {
-    
+function PriceList() {
+   
     return (
         <>
             <div>
@@ -15,25 +15,11 @@ function App() {
                     <img src={reactLogo} className="logo react" alt="React logo" />
                 </a>
             </div>
-            <h1>Blis Digital</h1>
-            
-            
-            <li>
-                <a href={`/chatbot`}>Chat bot</a>
-            </li>
-            <li>
-                <a href={`/catalog`}>catalog</a>
-            </li>
-            <li>
-                <a href={`/pricelist`}>Price list</a>
-            </li>
-            <li>
-                <a href={`/catchthebutton`}>catch the button</a>
-            </li>
-            
+            <h1>YOYO  price list here</h1>
+            <p> yayayay</p>
             
         </>
     );
 }
 
-export default App;
+export default PriceList;

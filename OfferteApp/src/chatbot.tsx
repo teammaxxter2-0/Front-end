@@ -3,10 +3,13 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-function App() {
-    
+function Chatbot() {
+   
     return (
         <>
+            
+            <h1>YOYO Chatbot</h1>
+            <p> yayayayya chatbot hierr</p>
             <div>
                 <a href="https://vitejs.dev" target="_blank">
                     <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -15,25 +18,8 @@ function App() {
                     <img src={reactLogo} className="logo react" alt="React logo" />
                 </a>
             </div>
-            <h1>Blis Digital</h1>
-            
-            
-            <li>
-                <a href={`/chatbot`}>Chat bot</a>
-            </li>
-            <li>
-                <a href={`/catalog`}>catalog</a>
-            </li>
-            <li>
-                <a href={`/pricelist`}>Price list</a>
-            </li>
-            <li>
-                <a href={`/catchthebutton`}>catch the button</a>
-            </li>
-            
-            
         </>
     );
 }
 
-export default App;
+export default Chatbot;
