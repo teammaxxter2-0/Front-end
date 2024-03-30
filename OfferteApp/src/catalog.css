@@ -1,11 +1,11 @@
-.catalog-container {
-    background: #33CCCC; /* Fallback */
+  .catalog-container {
+    background: #f7fcfc; 
     animation: color 9s infinite linear;
     text-align: center;
-    padding: 10em;
+    padding: 2em;
 }
 
-@keyframes color {
+/* @keyframes color {
     0% {
         background: #33CCCC;
     }
@@ -16,16 +16,10 @@
 
     40% {
         background: #B8CC33;
-    }
-
-        background: #33CC36;
-    }
-
-    100% {
-        background: #33CCCC;
-    }
-}
+    }  
+    
+}*/
 
 
 
-
+ 
