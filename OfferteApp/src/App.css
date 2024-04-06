@@ -1,33 +1,47 @@
 * {
- 
+
   text-align: center;
 }
-body{
-  
+
+body {
+
   opacity: 1;
   /* background: linear-gradient(135deg, #e1db1a55 25%, transparent 25%) -40px 0/ 80px 80px, 
   linear-gradient(225deg, #e1db1a 25%, transparent 25%) -40px 0/ 80px 80px, 
   linear-gradient(315deg, #e1db1a55 25%, transparent 25%) 0px 0/ 80px 80px,
    linear-gradient(45deg, #e1db1a 25%, #fefeff 25%) 0px 0/ 80px 80px !important;  */
-  
+
 }
+
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.center {
+  border: 5px solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  padding: 100px;
 }
 
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -38,7 +52,3 @@ body{
     animation: logo-spin infinite 20s linear;
   }
 }
-
-
-
-
