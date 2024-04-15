@@ -22,9 +22,12 @@ function Navbar() {
                             <Link className="nav-link" to="/chatbot">Chatbot </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/winkelwagen">Winkelwagen  </Link>
+                            <Link className="nav-link" to="/winkelwagen">Winkelwagen </Link>
                         </li>
-                        
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/offerte">Offerte </Link>
+                        </li>
+
                     </ul>
                 </div>
             </div>

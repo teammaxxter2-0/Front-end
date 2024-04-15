@@ -12,6 +12,7 @@ import Chatbot from './chatbot.tsx';
 import Catalog from './catalog.tsx';
 import PriceList from './pricelist.tsx';
 import Winkelwagen from './winkelwagen.tsx';
+import Offerte from "./Offerte.tsx";
 
 
 
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
     {
         path: "/winkelwagen",
         element: <Winkelwagen />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: "/offerte",
+        element: <Offerte />,
         errorElement: <ErrorPage />,
     },
     
