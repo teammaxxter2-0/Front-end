@@ -8,6 +8,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './App.css';
 import Navbar from './navbar';
 
+import { BsBootstrap } from 'react-icons/bs';
+import { BiBorderRadius } from 'react-icons/bi';
+import 'ngx-toastr/toastr';
+
+
 
 
 
@@ -15,41 +20,15 @@ function LogIn() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [visible, setVisible] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     async function handleSubmit() {
         setIsLoading(true);
         if (username === "" || password === "") {
-            toast({
-                variant: "destructive",
-                title: "incomplete",
-                description: "Not all fields have been filled in yet",
-            });
+            alert("Fill in all fields!");
             setIsLoading(false);
         } else {
-            try {
-                const account = await fetch(API_BASE_URL + "/api/Auth/Login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ name: username, password: password }),
-                }).then((account) => account.json());
-                if (account !== undefined) {
-                    localStorage.setItem("username", account.name);
-                    localStorage.setItem("Id", account.accountId);
-                    localStorage.setItem("Token", account.token);
-                    localStorage.setItem("Class", account.class);
-                    document.cookie = `jwtToken=${account.token}`;
-                }
-            } catch {
-                toast({
-                    variant: "destructive",
-                    title: t("toast.errortitle"),
-                    description: t("toast.wrong_credentials_error"),
-                });
-            } finally {
-                setIsLoading(false);
-            }
+            alert("Not implemented yet");
         }
     }
 
@@ -57,25 +36,42 @@ function LogIn() {
         <div>
             <Navbar />
 
-            <div className="center">
-                <h1>Log in</h1>
-                <form action="action_page.php" method="post">
-
-                    <div>
-                        <input type="text" placeholder="Enter Username" name="uname" required onChange={(e) => setUsername(e.currentTarget.value)}></input><br></br>
-
-                        <input type="password" placeholder="Enter Password" name="psw" required onChange={(e) => setPassword(e.currentTarget.value)}></input><br></br>
-
-                        <button type="submit" onClick={handleSubmit}>Login</button>
+            <div className='container py-5 h-100'>
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col col-xl-13">
+                        <div className="card">
+                            <div className="row g-0">
+                                <div className="col-md-8 col-lg-8">
+                                    <img src="../blis.webp"
+                                        alt="login picture" className="img-fluid w-100" />
+                                </div>
+                                <div className="col-md-6 col-lg-4">
+                                    <div className="card-body p-4 p-lg-7 text-black">
+                                        <form action="action_page.php" method="post">
+                                            <h1 className="mb-4">Log in</h1>
+                                            <div data-mdb-input-init className="form-outline mb-4">
+                                                <input type="email" id="form2Example17" className="form-control form-control-lg" onChange={(e) => setUsername(e.currentTarget.value)} />
+                                                <label className="form-label" htmlFor="form2Example17">Username</label>
+                                            </div>
+                                            <div data-mdb-input-init className="form-outline mb-4">
+                                                <input type="password" id="form2Example27" className="form-control form-control-lg" onChange={(e) => setPassword(e.currentTarget.value)} />
+                                                <label className="form-label" htmlFor="form2Example27">Password</label>
+                                            </div>
+                                            <div className="pt-1 mb-4">
+                                                <button data-mdb-button-init data-mdb-ripple-init className="btn btn-dark btn-lg btn-block" type="button" onClick={handleSubmit}>Login</button>
+                                            </div>
+                                            <p className="mb-5 pb-lg-2" >Don't have an account? <a href="Register"
+                                            >Register here</a></p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    {/* <div className="container">
-                        <span className="psw">Forgot <a href="#">password?</a></span>
-                    </div> */}
-                </form>
-
+                </div>
             </div>
         </div>
+
     )
 }
 
