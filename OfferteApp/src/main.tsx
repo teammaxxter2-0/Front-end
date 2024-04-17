@@ -13,6 +13,7 @@ import Catalog from './catalog.tsx';
 import PriceList from './pricelist.tsx';
 import Winkelwagen from './winkelwagen.tsx';
 import Offerte from "./Offerte.tsx";
+import Calculate from "./calculate.tsx";
 
 
 
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
     {
         path: "/offerte",
         element: <Offerte />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: "/calculate",
+        element: <Calculate />,
         errorElement: <ErrorPage />,
     },
     

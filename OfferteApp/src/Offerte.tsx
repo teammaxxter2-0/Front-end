@@ -55,7 +55,7 @@ const OffertePagina = () => {
                         </tr>)}
                         </tbody>
                     </table>
-                    <Button onClick={addItem}>Add item</Button>
+                    <Button className="btn btn-primary" onClick={addItem} style={{fontSize: '16px'}}>Add item </Button>
                 </>
             }
         </Container>

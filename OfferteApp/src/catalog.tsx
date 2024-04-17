@@ -6,6 +6,7 @@ import { GiCheckMark } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import Navbar from './navbar';
 
+
 import image1 from './assets/Material Images/noble_concrete_grey_verzoet.png';
 import image2 from './assets/Material Images/noble_desiree_grey.png';
 import image3 from './assets/Material Images/Taurus_terrazzo_black.png';
@@ -22,6 +23,7 @@ interface Rectangle {
     bool3: boolean;
     image: any;
 }
+
 
 const rectanglesData: Rectangle[] = [
     { id: 1, material: 'Noble Concrete Grey Verzoet', price: 43.99, content: 'Verrijk uw keuken met de tijdloze elegantie van Noble Concrete Grey Verzoet. Vervaardigd tot in de perfectie, deze luxueuze werkblad straalt verfijning en duurzaamheid uit. De strakke afwerking voegt een vleugje moderniteit toe aan elke culinaire ruimte, waardoor het de perfecte blikvanger is voor uw keuken.', bool1: true, bool2: false, bool3: true, image: image1 },
@@ -86,7 +88,6 @@ function Catalog() {
                                 <Collapse isOpen={openRectangles.includes(rectangle.id)}>
                                     <Card>
                                         <CardBody>
-                                        
                                             <div className="row">
                                                 <div className="col-md-4">
                                                     <div className="bools">
@@ -111,9 +112,15 @@ function Catalog() {
                                                 <div className="col">{rectangle.content}</div>
                                                 <div className="w-100"></div>
                                                 <div className="mt-2 d-flex justify-content-end">
-                                                    <Link to="/new">
+                                                    <Link
+                                                        to={{
+                                                            pathname: "/calculate",
+                                                            search: `?material=${encodeURIComponent(rectangle.material)}&price=${encodeURIComponent(rectangle.price)}&content=${encodeURIComponent(rectangle.content)}`
+                                                        }}
+                                                    >
                                                         <Button color="primary">Bereken jouw keukenblad</Button>
                                                     </Link>
+
                                                 </div>
                                             </div>
                                         </CardBody>

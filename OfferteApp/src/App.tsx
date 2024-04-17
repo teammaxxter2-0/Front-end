@@ -17,9 +17,6 @@ function App() {
             <li>
                 <a href={`/catalog`}>catalog</a>
             </li>
-            <li>
-                <a href={`/pricelist`}>Price list</a>
-            </li>
             
            
             
