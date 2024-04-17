@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@angular/animations": "^18.13.0 || >=20.9.0",
     "bootstrap": "^5.3.3",
     "ngx-toastr": "^18.0.0",
     "react": "^18.2.0",

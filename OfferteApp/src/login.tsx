@@ -1,15 +1,8 @@
 import { useState } from 'react'
 
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import ErrorPage from "./error-page.tsx"
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './App.css';
 import Navbar from './navbar';
 
-import { BsBootstrap } from 'react-icons/bs';
-import { BiBorderRadius } from 'react-icons/bi';
 import 'ngx-toastr/toastr';
 
 
@@ -19,8 +12,7 @@ import 'ngx-toastr/toastr';
 function LogIn() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [visible, setVisible] = useState<boolean>(false);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [, setIsLoading] = useState<boolean>(false);
 
     async function handleSubmit() {
         setIsLoading(true);
