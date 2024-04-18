@@ -1,16 +1,16 @@
 
 
-import Navbar  from './navbar';
+import Navbar from './Components/navbar';
 
 function PriceList() {
-   
+
     return (
         <>
-           <Navbar />
-           
+            <Navbar />
+
             <h1>YOYO  price list here</h1>
             <p> yayayay</p>
-            
+
         </>
     );
 }

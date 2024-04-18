@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
-import './App.css';
-import Navbar from './navbar';
+import '../App.css';
+import Navbar from '../Components/navbar';
 
 import 'ngx-toastr/toastr';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,15 +14,34 @@ function LogIn() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [, setIsLoading] = useState<boolean>(false);
+    const navigate = useNavigate();
 
     async function handleSubmit() {
         setIsLoading(true);
         if (username === "" || password === "") {
             alert("Fill in all fields!");
             setIsLoading(false);
-        } else {
-            alert("Not implemented yet");
         }
+        else {
+            try {
+                const account = await fetch("http://localhost:5173/Login", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ name: username, password: password }),
+                }).then((account) => account.json());
+                if (account !== undefined) {
+                    localStorage.setItem("username", account.name);
+                    localStorage.setItem("Id", account.accountId);
+                    navigate("/tickets");
+                }
+            }
+            catch {
+                alert("something went wrong");
+            }
+        }
+
     }
 
     return (
