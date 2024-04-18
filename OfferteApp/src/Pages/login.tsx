@@ -5,6 +5,7 @@ import Navbar from '../Components/navbar';
 
 import 'ngx-toastr/toastr';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../lib/api';
 
 
 
@@ -23,22 +24,31 @@ function LogIn() {
             setIsLoading(false);
         }
         else {
+            console.log("hoi");
             try {
-                const account = await fetch("http://localhost:5173/Login", {
-                    method: "GET",
+                const response = await fetch('http://localhost:5018/login', {
+                    method: 'POST',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ name: username, password: password }),
-                }).then((account) => account.json());
-                if (account !== undefined) {
-                    localStorage.setItem("username", account.name);
-                    localStorage.setItem("Id", account.accountId);
-                    navigate("/tickets");
+                    body: JSON.stringify({ username, password })
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem("username", data.name);
+                    localStorage.setItem("Id", data.accountId);
+                    navigate("/catalog");
+                    alert("Logged in successfully!");
+                } else {
+                    alert("Invalid username or password.");
                 }
             }
-            catch {
-                alert("something went wrong");
+            catch (error) {
+                console.error("Error:", error);
+                alert("Something went wrong.");
+            }
+            finally {
+                setIsLoading(false);
             }
         }
 
