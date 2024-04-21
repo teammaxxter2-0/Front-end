@@ -26,7 +26,7 @@ function LogIn() {
         else {
             console.log("hoi");
             try {
-                const response = await fetch('http://localhost:5018/login', {
+                const response = await fetch('http://localhost:5018/Account/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
