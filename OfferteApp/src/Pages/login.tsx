@@ -26,7 +26,7 @@ function LogIn() {
         else {
             console.log("hoi");
             try {
-                const response = await fetch('http://localhost:5018/api/Auth/Login', {
+                const response = await fetch('http://localhost:5018/api/Auth/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -37,15 +37,15 @@ function LogIn() {
                     const data = await response.json();
                     localStorage.setItem("username", data.name);
                     localStorage.setItem("Id", data.accountId);
-                    navigate("/catalog");
+                    navigate("..");
                     alert("Logged in successfully!");
                 } else {
-                    alert("Invalid username or password.");
+                    alert("Email and password combination not found");
                 }
             }
             catch (error) {
                 console.error("Error:", error);
-                alert("Something went wrong.");
+                alert("Something went wrong");
             }
             finally {
                 setIsLoading(false);
