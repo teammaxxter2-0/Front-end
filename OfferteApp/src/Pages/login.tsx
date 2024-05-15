@@ -24,9 +24,8 @@ function LogIn() {
             setIsLoading(false);
         }
         else {
-            console.log("hoi");
             try {
-                const response = await fetch('http://localhost:5018/api/Auth/login', {
+                const response = await fetch('api/Auth/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
