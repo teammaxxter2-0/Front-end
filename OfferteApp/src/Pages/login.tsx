@@ -34,8 +34,10 @@ function LogIn() {
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    localStorage.setItem("username", data.name);
                     localStorage.setItem("Id", data.accountId);
+                    localStorage.setItem("username", data.name);
+                    localStorage.setItem("Token", data.Token);
+
                     navigate("..");
                     alert("Logged in successfully!");
                 } else {
