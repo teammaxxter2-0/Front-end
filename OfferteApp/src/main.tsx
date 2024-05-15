@@ -1,19 +1,19 @@
 import React from 'react'
 
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import ErrorPage from "./error-page.tsx"
+import App from './Pages/App.tsx'
+import ErrorPage from "./Pages/error-page.tsx"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 //import './index.css'
-import Chatbot from './chatbot.tsx';
-import Catalog from './catalog.tsx';
+import Chatbot from './Pages/chatbot.tsx';
+import Catalog from './Pages/catalog.tsx';
 import PriceList from './pricelist.tsx';
 import Winkelwagen from './winkelwagen.tsx';
-import LogIn from './login.tsx';
-import Register from './register.tsx';
+import LogIn from './Pages/login.tsx';
+import Register from './Pages/register.tsx';
 
 
 
