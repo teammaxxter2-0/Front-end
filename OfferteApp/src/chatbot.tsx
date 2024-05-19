@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Navbar from './navbar';
+import { marked } from "marked";
+import sanitizeHtml from "sanitize-html";
 
 function Chatbot() {
 
@@ -8,7 +10,9 @@ function Chatbot() {
         'Assistent: Hallo! Hoe kan ik je vandaag helpen met betrekking tot onze keukenbladen?'
     ]);
 
-    async function sendData() {
+    async function sendData(e: any) {
+        e.preventDefault();
+        setInputValue('');
         appendUserMessage(inputValue);
         const response = await fetch('ai/send', {
             method: 'POST',
@@ -47,29 +51,28 @@ function Chatbot() {
         ]);
     }
    
-    return (
-        <>
-            <Navbar />
-            <div className="input-container" id="logContainer">
-                <h2>KeukenGPT</h2>
-                <textarea
+    return <>
+        <Navbar />
+        <div className="input-container" id="logContainer">
+            <h2>KeukenGPT</h2>
+            <form onSubmit={sendData}>
+                <input
                     id="inputBox"
                     placeholder="Enter something here"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                ></textarea>
-                <button onClick={sendData}>Send</button>
-                <hr />
-                <div className="output-box" id="outputBox">
-                    {messages.map((message, index) => (
-                        <div key={index} className={message.includes('U:') ? 'user-message' : 'log-container'}>
-                            {message}
-                        </div>
-                    ))}
-                </div>
+                ></input>
+                <button type={"submit"}>Send</button>
+            </form>
+            <hr/>
+            <div className="output-box" id="outputBox">
+                {messages.map((message, index) => <div key={index}
+                                                       dangerouslySetInnerHTML={{__html: sanitizeHtml(marked.parse(message).toString())}}
+                                                       className={message.includes('U:') ? 'user-message' : 'log-container'}>
+                </div>)}
             </div>
-        </>
-    );
+        </div>
+    </>;
 }
 
 export default Chatbot;
