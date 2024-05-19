@@ -12,8 +12,8 @@ function Chatbot() {
 
     async function sendData(e: any) {
         e.preventDefault();
-        setInputValue('');
         appendUserMessage(inputValue);
+        setInputValue('');
         const response = await fetch('ai/send', {
             method: 'POST',
             headers: {
@@ -55,7 +55,7 @@ function Chatbot() {
         <Navbar />
         <div className="input-container" id="logContainer">
             <h2>KeukenGPT</h2>
-            <form onSubmit={sendData}>
+            <form onSubmit={sendData} autoComplete={"off"}>
                 <input
                     id="inputBox"
                     placeholder="Enter something here"
